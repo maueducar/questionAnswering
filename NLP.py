@@ -7,6 +7,21 @@
 
 #!pip install lxml
 
+''' CREATE TABLE Models (
+    Id    INTEGER       PRIMARY KEY,
+    Model VARCHAR (200) 
+);
+
+CREATE TABLE Source (
+    ID   INTEGER       PRIMARY KEY
+                       UNIQUE
+                       NOT NULL,
+    Type VARCHAR (20)  NOT NULL,
+    Path VARCHAR (200) NOT NULL
+);
+ '''
+
+import sqlite3
 
 from transformers import AutoTokenizer, AutoModelForQuestionAnswering, pipeline
 
@@ -17,12 +32,24 @@ from bs4 import BeautifulSoup
 
 import re
 
+defaultModel = ""
 
+try:
+  conn = sqlite3.connect('questionAnswering.db')
+except:
+  print("Error al conectar base de datos")
+finally:
+  cur = conn.cursor()
+  for row in cur.execute('SELECT * from Models limit 1'):
+    defaultModel = row[1]
 
 
 """https://huggingface.co/models
 The model was trained on a Tesla P100 GPU and 25GB of RAM with the following command:"""
-the_model = input("Ingrese modelo preentrenado a utilizar: ")#'mrm8488/distill-bert-base-spanish-wwm-cased-finetuned-spa-squad2-es'
+the_model = input("Ingrese modelo preentrenado a utilizar (mrm8488 por Defecto): ")#'mrm8488/distill-bert-base-spanish-wwm-cased-finetuned-spa-squad2-es'
+
+if  len(the_model) == 0:
+      the_model = defaultModel
 
 
 """The tokenizer is responsible for all the preprocessing the pretrained model expects, 
@@ -57,7 +84,7 @@ por el reemplazo de repl."""
 contexto=(re.sub(CLEANR, '', str(noticia)))
 
 
-def pregunta_respuesta(model, contexto, nlp):
+def pregunta_respuesta(contexto, nlp):
 
   # Imprimir contexto
 
@@ -95,7 +122,7 @@ def pregunta_respuesta(model, contexto, nlp):
 
 nlp = pipeline('question-answering', model=model, tokenizer=tokenizer)
 
-pregunta_respuesta(model, contexto, nlp)
+pregunta_respuesta(contexto, nlp)
 
 
 ##Comienza el programa, realizar preguntas....###
