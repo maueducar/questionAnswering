@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >       
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+                     
+        <title>answering questions</title>
+    </head>
+    <body>
+        <h1>Question Answering</h1>
+        <p>
+          <div id="ComboModels" data-commentid="1"></div>
+        </p>
+        <p>
+          <input type="text" id="urlNew" value="https://www.mdzol.com/policiales/2022/3/29/conmocion-un-militar-fusilo-su-esposa-luego-se-suicido-232107.html"> 
+        </p>
+        <p>
+          <label for="question">Pregunta:</label>
+          <input type="text" id="question" name="question"><br><br>
+        </p>        
+        <p>
+          <button onclick="answerQuestion()">Responder</button>
+        </p>
+        <div id="answer"></div>
+        <div id="SourceText"></div>
+        <div id="Response"></div>
+        <script src="js.js" ></script>
+    </body>
+</html>
