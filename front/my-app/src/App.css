@@ -1,0 +1,175 @@
+body{
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+.content{
+  padding-top: 30vh;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 30vh;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: fixed;
+}
+
+html{
+  background-color: dimgrey;
+  height: 100vh;
+}
+
+.new{
+  width: 90vw;
+  margin-top: 30px;
+  margin-left: 3vw;
+  padding: 5px;
+  background-color: white;
+  border: solid;
+
+  voice-family: male;
+  richness: 80;
+  cue-before: url("beep.au")
+}
+
+.questionTitle{
+  color: white;
+  font-size: larger;
+}
+
+.model{
+  margin-left: 10px;
+  margin-top: 10px;
+  position:  ab;
+  width: 90vw;
+}
+
+.question{
+  font-size: x-large !important;
+  color: black;
+}
+
+button{
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 160px;
+  font-size: x-large;
+  border: solid;
+  border-color: grey;
+}
+
+button:hover{
+  font-style: oblique;
+  border-width: 10px;
+  transition: 100ms;
+  border-radius: 20px;
+}
+
+.response{
+  position: relative;
+  width: 90vw;
+  border: solid;
+  border-color: black;
+  margin-left: 3.5vw;
+  height: 80px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.loader {
+  font-size: 10px;
+  margin: 0% auto;
+  text-indent: -9999em;
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background: #ffffff;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  position: relative;
+  -webkit-animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #FFF;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #022827;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load3 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
